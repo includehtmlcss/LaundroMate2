@@ -14,14 +14,14 @@ const CustomSwitch = ({ value, onChange}) => {
          onPress = {() => onChange(!value)}
         >
             <View
-            styles = {{
+            style = {{
                 flexDirection : 'row'
             }}
             >
 
                 {/* Switch */}
                 <View
-                    styles = {value ? styles.switchOnContainer : styles.switchOffContainer}
+                    style = {value ? styles.switchOnContainer : styles.switchOffContainer}
                 >
                     <View
                         style = {{

@@ -23,7 +23,7 @@ const SignIn = ( { navigation }) => {
     const [emailError, setEmailError] = React.useState("")
 
     const [showPass, setShowPass] = React.useState(false)
-    const [saveMe, setSaveMe] = React.useState (false)
+    const [saveMe, setSaveMe] = React.useState(false)
 
     function isEnableSignIn () {
         return email != "" && password != "" && emailError == ""
@@ -36,7 +36,7 @@ const SignIn = ( { navigation }) => {
                 <View
                     style={{
                         flex: 1,
-                    marginTop: SIZES.padding *2
+                        marginTop: SIZES.padding *2
                     }}>
 
                   {/* Form Inputs */}
@@ -46,8 +46,8 @@ const SignIn = ( { navigation }) => {
                     autoCompleteType="email"
                     onChange={(value) => {
                         // validate email I
-                    utils.validateEmail(value, setEmailError)
-                    setEmail(value)
+                        utils.validateEmail(value, setEmailError)
+                        setEmail(value)
                     }}
                     
                     errorMsg={emailError}
@@ -63,7 +63,8 @@ const SignIn = ( { navigation }) => {
                             height: 20,
                             width:20,
                             tintColor: email == "" ? COLORS.gray : (email != "" && emailError == "") ? COLORS.green : COLORS.red
-                    }} />
+                        }} 
+                    />
                     </View>
                     }
                     />
@@ -117,7 +118,7 @@ const SignIn = ( { navigation }) => {
                                 color : COLORS.gray,
                                 ...FONTS.body4
                             }}
-                            onPress = {() => navigation.navigate("Forgot Password")}
+                            onPress = {() => navigation.navigate("ForgotPassword")}
                         />
                     </View>
 
@@ -128,7 +129,7 @@ const SignIn = ( { navigation }) => {
                     disabled = {isEnableSignIn() ? false : true}
                     buttonContainerStyle = {{
                         height : 55,
-                        alignItmes : 'center',
+                        alignItems : 'center',
                         marginTop : SIZES.padding,
                         borderRadius  : SIZES.radius,
                         backgroundColor : isEnableSignIn() ? COLORS.primary: COLORS.transparentPrimary
@@ -159,10 +160,10 @@ const SignIn = ( { navigation }) => {
                         backgroundColor  : null
                     }}
                     labelStyle = {{
-                        coloe : COLORS.primary,
+                        color : COLORS.primary,
                         ...FONTS.h3
                     }}
-                    onPress = {() => navigation.navigate("Sign Up")}
+                    onPress = {() => navigation.navigate("SignUp")}
                 />
 
                   </View>
@@ -171,14 +172,14 @@ const SignIn = ( { navigation }) => {
                 {/* Footer */}
                 <View>
                     {/*Facebok */}
-                    <TextButton 
+                    <TextIconButton 
                         containerStyle ={{
                             height : 50,
                             alignItems : 'center',
                             borderRadius : SIZES.radius,
                             backgroundColor : COLORS.blue
                         }}
-                        icons = {icons.fb}
+                        icon = {icons.fb}
                         iconPosition = "LEFT"
                         iconStyle = {{
                             tintColor : COLORS.white
@@ -188,11 +189,11 @@ const SignIn = ( { navigation }) => {
                             marginLeft : SIZES.radius,
                             color : COLORS.white
                         }}
-                        onPress = {() => console.log ("FB")}
+                        onPress = {() => console.log("FB")}
                     />
 
                     {/* Google */}
-                    <TextButton 
+                    <TextIconButton 
                         containerStyle ={{
                             height : 50,
                             alignItems : 'center',
@@ -200,7 +201,7 @@ const SignIn = ( { navigation }) => {
                             borderRadius : SIZES.radius,
                             backgroundColor : COLORS.lightGray2
                         }}
-                        icons = {icons.google}
+                        icon = {icons.google}
                         iconPosition = "LEFT"
                         iconStyle = {{
                             tintColor : null

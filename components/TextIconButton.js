@@ -51,10 +51,7 @@ const TextIconButton = ({
                 <Image
                     source={icon}
                     style={{
-                        marginLeft: 5,
-                        width: 20,
-                        height: 20,
-                        tintColor: COLORS.black,
+                        ...styles.image,
                         ...iconStyle
                     }}
                 />
@@ -62,4 +59,13 @@ const TextIconButton = ({
         </TouchableOpacity>
     )
 }
+
+const styles=StyleSheet.create({
+    image:{
+        marginLeft:5,
+        width:20,
+        height:20,
+        tintColor:COLORS.black
+    }
+})
 export default TextIconButton;

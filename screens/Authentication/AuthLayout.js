@@ -20,7 +20,7 @@ const AuthLayout = ({ title, subtitle, titleContainerStyle, children}) => {
             }}
         >
             <KeyboardAwareScrollView
-                keyboardDismissNode = "on-drag"
+                keyboardDismissMode = "on-drag"
                 contentContainerStyle = {{
                     flex : 1,
                     paddingHorizontal : SIZES.padding
@@ -60,7 +60,7 @@ const AuthLayout = ({ title, subtitle, titleContainerStyle, children}) => {
                     <Text
                         style= {{
                             textAlign : 'center',
-                            color : COLORS.white,
+                            color : COLORS.darkGray,
                             marginTop : SIZES.base,
                             ...FONTS.body3
                         }}
