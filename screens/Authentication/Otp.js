@@ -92,33 +92,34 @@ const Otp = ({ navigation }) => {
                         backgroundColor: COLORS.primary
                     }}
                     onPress={() => {
-                        const msg = fetch('http://aa12-122-168-242-28.ngrok.io/api/v1/sms/validate', {
-                            method: 'POST',
-                            headers: {
-                                Accept: 'application/json',
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(
-                                {
-                                    "phoneNumber": number,
-                                    "userInputOtp": otp
-                                }
-                            )
-                        });
-                        msg.then((response) => {
-                            if (response.headers.get('Content-Length') === "9") {
-                                setIsValidOtp(true);
-                            }
-                        });
-                        setTimeout(() => {
-                            console.log();
-                            console.log(otp);
-                            console.log(number);
-                            console.log(isValidOtp);
-                            if(isValidOtp) {
-                                navigation.replace("SignUp")
-                            }
-                        }, 1000);
+                        // const msg = fetch('http://aa12-122-168-242-28.ngrok.io/api/v1/sms/validate', {
+                        //     method: 'POST',
+                        //     headers: {
+                        //         Accept: 'application/json',
+                        //         'Content-Type': 'application/json'
+                        //     },
+                        //     body: JSON.stringify(
+                        //         {
+                        //             "phoneNumber": number,
+                        //             "userInputOtp": otp
+                        //         }
+                        //     )
+                        // });
+                        // msg.then((response) => {
+                        //     if (response.headers.get('Content-Length') === "9") {
+                        //         setIsValidOtp(true);
+                        //     }
+                        // });
+                        // setTimeout(() => {
+                        //     console.log();
+                        //     console.log(otp);
+                        //     console.log(number);
+                        //     console.log(isValidOtp);
+                        //     if(isValidOtp) {
+                        //         navigation.replace("SignUp")
+                        //     }
+                        // }, 1000);
+                        navigation.replace("SignUp")
                     }}
                 />
 

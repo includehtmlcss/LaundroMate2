@@ -9,13 +9,13 @@ import {
 	ScrollView
 } from 'react-native';
 import { AuthLayout } from '../';
-import { FONTS, SIZES, COLORS, icons } from '../../constants';
+import { FONTS, SIZES, COLORS, icons, dummyData } from '../../constants';
 import { FormInput, TextButton, TextIconButton } from '../../components'
 import { utils } from '../../utils';
 import Geolocation from 'react-native-geolocation-service';
 import { PermissionsAndroid } from "react-native";
 
-var location,userLatitude,userLongitude,username;
+var location, userLatitude, userLongitude, username;
 const SignUp = ({ navigation }) => {
 	const [email, setEmail] = React.useState('')
 	const [name, setName] = React.useState('')
@@ -24,7 +24,7 @@ const SignUp = ({ navigation }) => {
 
 	function isEnableSignUp() {
 		return email != '' && name != '' && emailError == '' && nameError == ''
-		&& latitude != 0 && longitude != 0
+			&& latitude != 0 && longitude != 0
 		// return true
 	}
 
@@ -132,36 +132,56 @@ const SignUp = ({ navigation }) => {
 						</View>
 					}
 				/>
-				<View
-					style={{
-						display: 'flex',
-						flexDirection: 'row',
-						justifyContent: 'space-between',
-						alignItems: 'center',
-						marginTop: SIZES.padding,
-					}}
-				>
-					<Text
+				<View>
+					<TouchableOpacity
 						style={{
-							color: COLORS.gray,
-							...FONTS.body4,
-							flex: 4
+							marginTop: SIZES.padding+5,
+							height: 180,
+							display: 'flex',
+							borderRadius: SIZES.radius,
+							overflow: 'hidden',
 						}}
 					>
-						Location: <Text style={{ color: COLORS.primary, fontWeight: 'bold' }}>{latitude}, {longitude}</Text>{'\n'}{address}
-					</Text>
-					<TextButton
-						label="Get Location"
-						onPress={requestLocationPermission}
-						buttonContainerStyle={{
+						<Image
+							source={dummyData.userMap}
+							style={{
+								flex: 1,
+								height: '100%',
+								width: '100%'
+							}}
+						/>
+					</TouchableOpacity>
+					<View
+						style={{
+							display: 'flex',
+							flexDirection: 'row',
+							justifyContent: 'space-between',
 							alignItems: 'center',
-							backgroundColor: COLORS.transparent,
-							flex: 2
+							marginTop: SIZES.padding,
 						}}
-						labelStyle={{
-							color: COLORS.primary,
-						}}
-					/>
+					>
+						<Text
+							style={{
+								color: COLORS.gray,
+								...FONTS.body4,
+								flex: 4
+							}}
+						>
+							Location: <Text style={{ color: COLORS.primary, fontWeight: 'bold' }}>{latitude}, {longitude}</Text>{'\n'}{address}
+						</Text>
+						<TextButton
+							label="Get Location"
+							onPress={requestLocationPermission}
+							buttonContainerStyle={{
+								alignItems: 'center',
+								backgroundColor: COLORS.transparent,
+								flex: 2
+							}}
+							labelStyle={{
+								color: COLORS.primary,
+							}}
+						/>
+					</View>
 				</View>
 				{/* Sign up amd Sign In */}
 				<TextButton
@@ -177,9 +197,9 @@ const SignUp = ({ navigation }) => {
 					onPress={() => {
 						navigation.replace("Home");
 						location = address;
-						userLatitude=latitude;
-						userLongitude=longitude;
-						username=name;
+						userLatitude = latitude;
+						userLongitude = longitude;
+						username = name;
 					}}
 				/>
 			</View>
@@ -187,5 +207,5 @@ const SignUp = ({ navigation }) => {
 	)
 
 }
-export { location,userLatitude,userLongitude,username };
+export { location, userLatitude, userLongitude, username };
 export default SignUp;

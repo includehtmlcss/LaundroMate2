@@ -245,6 +245,8 @@ const fromLocs = [
   }
 ]
 
+const userMap = require("../assets/images/usermap.jpg");
+
 export default {
   myProfile,
   categories,
@@ -254,5 +256,6 @@ export default {
     myCards,
     allCards,
     fromLocs,
-    regularwash
+    regularwash,
+    userMap
 };

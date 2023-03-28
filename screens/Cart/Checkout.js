@@ -16,6 +16,7 @@ import { FONTS, SIZES, COLORS, icons, dummyData } from "../../constants";
 import { location } from '../Authentication/SignUp';
 import { laundry } from '../Home/Home';
 import { q1, q2, q3, tot } from '../Laundry/LaundryDetail';
+import DropdownComponent from './Dropdown';
 
 const Checkout = ({ navigation, route }) => {
 
@@ -164,6 +165,12 @@ const Checkout = ({ navigation, route }) => {
 		)
 	}
 
+	function renderSchedulePickUp() {
+		return (
+			<DropdownComponent/>
+		)
+	}
+
 	return (
 		<View
 			style={{
@@ -187,6 +194,9 @@ const Checkout = ({ navigation, route }) => {
 
 				{/* Delivery Address */}
 				{renderDeliveryAddr()}
+
+				<Text style={{ ...FONTS.h3, marginTop: SIZES.padding }}>Pickup Slot</Text>
+				{renderSchedulePickUp()}
 
 				<Text style={{ ...FONTS.h3, marginTop: SIZES.padding }}>Order Summary - {laundry.name}</Text>
 				{renderOrderSummary()}
