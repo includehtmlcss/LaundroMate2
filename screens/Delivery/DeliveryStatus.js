@@ -21,7 +21,7 @@ import { username } from '../Authentication/SignUp';
 
 const DeliveryStatus = ({ navigation }) => {
 
-    const [currentStep, setCurrentStep] = React.useState(2)
+    const [currentStep, setCurrentStep] = React.useState(1)
 
 
     function renderHeader() {
@@ -34,32 +34,32 @@ const DeliveryStatus = ({ navigation }) => {
                     marginTop: 25
                 }}
                 leftComponent={
-					<IconButton
-						icon={icons.back}
-						containerStyle={{
-							width: 40,
-							height: 40,
-							alignItems: 'center',
-							justifyContent: 'center',
-							borderRadius: SIZES.radius,
-							borderWidth: 1,
-							borderColor: COLORS.gray2
-						}}
-						iconStyle={{
-							width: 20,
-							height: 20,
-							tintColor: COLORS.gray2
-						}}
-						onPress={() => navigation.goBack()}
-					/>
-				}
-				rightComponent={
-					<View
-						style={{
-							width: 40
-						}}
-					/>
-				}
+                    <IconButton
+                        icon={icons.back}
+                        containerStyle={{
+                            width: 40,
+                            height: 40,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            borderRadius: SIZES.radius,
+                            borderWidth: 1,
+                            borderColor: COLORS.gray2
+                        }}
+                        iconStyle={{
+                            width: 20,
+                            height: 20,
+                            tintColor: COLORS.gray2
+                        }}
+                        onPress={() => navigation.goBack()}
+                    />
+                }
+                rightComponent={
+                    <View
+                        style={{
+                            width: 40
+                        }}
+                    />
+                }
             />
         )
     }
@@ -102,7 +102,7 @@ const DeliveryStatus = ({ navigation }) => {
                     backgroundColor: COLORS.white2
                 }}
             >
-                {/* Track ORder */}
+                {/* Track Order */}
                 <View
                     style={{
                         flexDirection: 'row',
@@ -212,38 +212,48 @@ const DeliveryStatus = ({ navigation }) => {
                 {currentStep < constants.track_order_status.length - 1 &&
                     <View
                         style={{
+                            display: 'flex',
                             flexDirection: 'row',
                             height: 55
                         }}
                     >
-                        {/* Cancel */}
-                        <TextButton
-                            buttonContainerStyle={{
-                                width: "40%",
-                                backgroundRadius: SIZES.base,
-                                backgroundColor: COLORS.lightGray2
-                            }}
-                            label="Cancel"
-                            labelStyle={{
-                                color: COLORS.primary
-                            }}
-                            onPress={() => navigation.navigate("LaundryDetail")}
-                        />
-
-                        {/* MapView */}
+                        {/* Order Summary */}
                         <TextIconButton
                             containerStyle={{
-                                flex: 1,
-                                marginLeft: SIZES.radius,
+                                flex: 7,
+                                borderRadius: SIZES.base,
+                                backgroundColor: COLORS.lightGray2
+                            }}
+                            label="Order Summary"
+                            labelStyle={{
+                                color: COLORS.primary,
+                                ...FONTS.h3
+                            }}
+                            icon={icons.order_summary}
+                            iconPosition="LEFT"
+                            iconStyle={{
+                                width: 25,
+                                height: 25,
+                                marginRight: SIZES.base,
+                                tintColor: COLORS.primary
+                            }}
+                            onPress={() => navigation.navigate("OrderSummary")}
+                        />
+
+                        {/* Need Help */}
+                        <TextIconButton
+                            containerStyle={{
+                                flex: 6,
+                                marginLeft: SIZES.base,
                                 borderRadius: SIZES.base,
                                 backgroundColor: COLORS.primary
                             }}
-                            label="Map View"
+                            label="Need Help?"
                             labelStyle={{
                                 color: COLORS.white,
                                 ...FONTS.h3
                             }}
-                            icon={icons.map}
+                            icon={icons.customer_service}
                             iconPosition="LEFT"
                             iconStyle={{
                                 width: 25,
@@ -252,8 +262,7 @@ const DeliveryStatus = ({ navigation }) => {
                                 tintColor: COLORS.white
                             }}
                             onPress={() => {
-                                // navigation.navigate("Map")
-                                console.log("Map View")
+                                console.log("Need Help")
                             }}
                         />
 

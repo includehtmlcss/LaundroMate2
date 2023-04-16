@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
 	View,
 	Text,
-	Image
+	Image,
+	StyleSheet
 } from 'react-native';
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import {
@@ -16,7 +17,7 @@ import { FONTS, SIZES, COLORS, icons, dummyData } from "../../constants";
 import { location } from '../Authentication/SignUp';
 import { laundry } from '../Home/Home';
 import { q1, q2, q3, tot } from '../Laundry/LaundryDetail';
-import DropdownComponent from './Dropdown';
+import { Dropdown } from 'react-native-element-dropdown';
 
 const Checkout = ({ navigation, route }) => {
 
@@ -123,6 +124,27 @@ const Checkout = ({ navigation, route }) => {
 					}}
 					key={laundry.services[i].id}
 				>
+					<View
+                        style={{
+                            height: 60,
+                            width: 60,
+                            borderRadius: SIZES.radius,
+                            backgroundColor: COLORS.lightGray2,
+                            marginRight: SIZES.padding - 5,
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            paddingTop: 8
+                        }}
+                    >
+                        <Image
+                            source={laundry.services[i].img}
+                            resizeMode="contain"
+                            style={{
+                                height: 60,
+                                tintColor: COLORS.primary,
+                            }}
+                        />
+                    </View>
 					<Text
 						style={{
 							...FONTS.body3,
@@ -152,6 +174,60 @@ const Checkout = ({ navigation, route }) => {
 			);
 		}
 	}
+	function renderPickupSlot() {
+		const [value, setValue] = useState(null);
+		const [isFocus, setIsFocus] = useState(false);
+		const data = [
+			{ label: '6:00 AM to 8:00 AM', value: '1' },
+			{ label: '8:00 AM to 10:00 AM', value: '2' },
+			{ label: '10:00 AM to 12:00 PM', value: '3' },
+			{ label: '4:00 PM to 6:00 PM', value: '4' },
+			{ label: '6:00 PM to 8:00 PM', value: '5' },
+			{ label: '8:00 PM to 10:00 PM', value: '6' },
+			{ label: '10:00 PM to 12:00 AM', value: '7' }
+		];
+
+		return (
+			<Dropdown
+				style={[
+					{
+						marginTop: SIZES.radius,
+						paddingVertical: SIZES.radius,
+						paddingHorizontal: SIZES.radius,
+						borderWidth: 2,
+						borderRadius: SIZES.radius,
+						borderColor: COLORS.lightGray2,
+					}, isFocus && { borderColor: COLORS.transparentPrimary }]
+				}
+				placeholder={!isFocus ? 'Select a Time Slot' : '...'}
+				placeholderStyle={{
+					...FONTS.body3
+				}}
+				selectedTextStyle={{
+					...FONTS.body3
+				}}
+				selectedTextProps={{
+					...FONTS.body3
+				}}
+				containerStyle={{
+					borderRadius: SIZES.radius
+				}}
+				itemTextStyle={{
+					...FONTS.body4
+				}}
+				data={data}
+				labelField="label"
+				valueField="value"
+				value={value}
+				onFocus={() => setIsFocus(true)}
+				onBlur={() => setIsFocus(false)}
+				onChange={item => {
+					setValue(item.value);
+					setIsFocus(false);
+				}}
+			/>
+		);
+	}
 	function renderOrderSummary() {
 		return (
 			<View
@@ -165,11 +241,6 @@ const Checkout = ({ navigation, route }) => {
 		)
 	}
 
-	function renderSchedulePickUp() {
-		return (
-			<DropdownComponent/>
-		)
-	}
 
 	return (
 		<View
@@ -196,7 +267,7 @@ const Checkout = ({ navigation, route }) => {
 				{renderDeliveryAddr()}
 
 				<Text style={{ ...FONTS.h3, marginTop: SIZES.padding }}>Pickup Slot</Text>
-				{renderSchedulePickUp()}
+				{renderPickupSlot()}
 
 				<Text style={{ ...FONTS.h3, marginTop: SIZES.padding }}>Order Summary - {laundry.name}</Text>
 				{renderOrderSummary()}
@@ -212,4 +283,4 @@ const Checkout = ({ navigation, route }) => {
 	)
 }
 
-export default Checkout; 
+export default Checkout;

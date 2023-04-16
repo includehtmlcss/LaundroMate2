@@ -7,7 +7,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient'
 import { TextButton, LineDivider } from "../components"
 import { FONTS, SIZES, COLORS } from '../constants';
-const FooterTotal = ({ subTotal, shippingFee, total, onPress }) => {
+const FooterOrderSummary = ({ subTotal, shippingFee, total, onPress }) => {
     return (
         <View>
             {/* shadow */}
@@ -70,20 +70,10 @@ const FooterTotal = ({ subTotal, shippingFee, total, onPress }) => {
                     <Text style={{ flex: 1, ...FONTS.h2 }}>Total:</Text>
                     <Text style={{ ...FONTS.h2 }}>₹{total.toFixed(2)}</Text>
                 </View>
-                {/* Button */}
-                <TextButton buttonContainerStyle={{
-                    height: 60,
-                    marginTop: SIZES.padding,
-                    borderRadius: SIZES.radius,
-                    backgroundColor: COLORS.primary
-                }}
-                    label="Place Your Order"
-                    onPress={onPress}
-                />
 
             </View>
 
         </View>
     )
 }
-export default FooterTotal;
+export default FooterOrderSummary;

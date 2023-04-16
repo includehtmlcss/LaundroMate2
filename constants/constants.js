@@ -136,23 +136,23 @@ const track_order_status = [
   },
   {
       id: 2,
-      title: "Order Prepared",
-      sub_title: "Your order has been prepared"
+      title: "Pick Up",
+      sub_title: "A pickup guy will be assigned soon"
   },
   {
       id: 3,
-      title: "Delivery in Progress",
-      sub_title: "Hang on! Your food is on the way"
+      title: "Clothes Received",
+      sub_title: "Clothes received by laundry service"
   },
   {
       id: 4,
-      title: "Delivered",
-      sub_title: "Enjoy your meal!"
+      title: "Washing",
+      sub_title: "Making the clothes shine!"
   },
   {
       id: 5,
-      title: "Rate Us",
-      sub_title: "Help us improve our service"
+      title: "Delivery",
+      sub_title: "The best attire for you will arrive soon!"
   }
 ]
 

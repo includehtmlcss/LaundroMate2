@@ -1,9 +1,6 @@
 import React from 'react'
 import { View, Text, Image, ScrollView } from 'react-native';
-
 import { FONTS, COLORS, SIZES, icons, images, dummyData } from '../../constants'
-
-
 import { Header, IconButton, CartQuantityButton, IconLabel, TextButton, LineDivider, Rating, StepperInput } from '../../components';
 import { laundry } from '../Home/Home';
 import { userLatitude, userLongitude } from '../Authentication/SignUp';
@@ -11,6 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 var q1, q2, q3, tot;
 const LaundryDetail = ({ navigation }) => {
+	const [cartQty, setCartQty] = React.useState(0);
 	console.log(laundry);
 	function renderHeader() {
 		return (
@@ -45,7 +43,7 @@ const LaundryDetail = ({ navigation }) => {
 				}
 				rightComponent={
 					<CartQuantityButton
-						quantity={3}
+						quantity={cartQty}
 					/>
 				}
 			/>
@@ -448,6 +446,9 @@ const LaundryDetail = ({ navigation }) => {
 										console.log("Minus");
 										setQty1(qty1 - 1);
 										setTotal(total - laundry.services[0].price);
+										if (qty1 > 0) {
+											setCartQty(cartQty - 1);
+										}
 									}}
 								>
 									<Image
@@ -494,6 +495,7 @@ const LaundryDetail = ({ navigation }) => {
 									onPress={() => {
 										console.log("Plus");
 										setQty1(qty1 + 1);
+										setCartQty(cartQty + 1);
 										setTotal(total + laundry.services[0].price);
 									}}
 								>
@@ -592,6 +594,9 @@ const LaundryDetail = ({ navigation }) => {
 										console.log("Minus");
 										setQty2(qty2 - 1);
 										setTotal(total - laundry.services[1].price);
+										if (qty2 > 0) {
+											setCartQty(cartQty - 1);
+										}
 									}}
 								>
 									<Image
@@ -638,6 +643,7 @@ const LaundryDetail = ({ navigation }) => {
 									onPress={() => {
 										console.log("Plus");
 										setQty2(qty2 + 1);
+										setCartQty(cartQty + 1);
 										setTotal(total + laundry.services[1].price);
 									}}
 								>
@@ -735,6 +741,9 @@ const LaundryDetail = ({ navigation }) => {
 									onPress={() => {
 										console.log("Minus");
 										setQty3(qty3 - 1);
+										if (qty3 > 0) {
+											setCartQty(cartQty - 1);
+										}
 										setTotal(total - laundry.services[2].price);
 									}}
 								>
@@ -782,6 +791,7 @@ const LaundryDetail = ({ navigation }) => {
 									onPress={() => {
 										console.log("Plus");
 										setQty3(qty3 + 1);
+										setCartQty(cartQty + 1);
 										setTotal(total + laundry.services[2].price);
 									}}
 								>

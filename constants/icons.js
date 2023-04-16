@@ -36,12 +36,17 @@ const rating = require("../assets/icons/rating.png")
 const plus = require("../assets/icons/plus.png")
 const minus = require("../assets/icons/minus.png")
 const location1 = require("../assets/icons/location1.png")
-
+const check_circle = require("../assets/icons/check_circle.png");
+const customer_service=require("../assets/icons/customer_service.png")
+const order_summary=require("../assets/icons/order_summary.png")
 
 export default {
     coupon,
+    customer_service,
+    order_summary,
     cross,
     cart,
+    check_circle,
     menu,
     search,
     filter,

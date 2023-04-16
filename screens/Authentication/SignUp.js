@@ -139,7 +139,7 @@ const SignUp = ({ navigation }) => {
 							height: 180,
 							display: 'flex',
 							borderRadius: SIZES.radius,
-							overflow: 'hidden',
+							overflow: 'hidden'
 						}}
 					>
 						<Image
@@ -186,13 +186,15 @@ const SignUp = ({ navigation }) => {
 				{/* Sign up amd Sign In */}
 				<TextButton
 					label="Sign Up"
-					disabled={isEnableSignUp() ? false : true}
+					// disabled={isEnableSignUp() ? false : true}
+					disabled={false}
 					buttonContainerStyle={{
 						height: 55,
 						alignItems: 'center',
 						marginTop: SIZES.padding,
 						borderRadius: SIZES.radius,
-						backgroundColor: isEnableSignUp() ? COLORS.primary : COLORS.transparentPrimary
+						// backgroundColor: isEnableSignUp() ? COLORS.primary : COLORS.transparentPrimary
+						backgroundColor: COLORS.primary
 					}}
 					onPress={() => {
 						navigation.replace("Home");

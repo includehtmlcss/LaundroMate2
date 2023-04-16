@@ -15,9 +15,10 @@ import {
     Success,
     AddCard,
     MyCard,
-    DeliveryStatus,
+    DeliveryStatus
     // Map
 } from './screens';
+import OrderSummary from "./screens/OrderSummary/OrderSummary";
 
 import CustomDrawer from "./navigation/CustomDrawer";
 
@@ -113,6 +114,10 @@ const App = () => {
                     <Stack.Screen
                         name="DeliveryStatus"
                         component={DeliveryStatus}
+                    />
+                    <Stack.Screen
+                        name="OrderSummary"
+                        component={OrderSummary}
                     />
 
                     {/* <Stack.Screen
