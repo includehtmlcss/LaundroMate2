@@ -94,7 +94,8 @@ const SignUp = ({ navigation }) => {
 					flex: 1,
 					marginTop: SIZES.padding,
 				}}
-			>
+				>
+					<ScrollView>
 				<FormInput
 					label="Name"
 					placeholder={"What should we call you?"}
@@ -184,6 +185,7 @@ const SignUp = ({ navigation }) => {
 					</View>
 				</View>
 				{/* Sign up amd Sign In */}
+				</ScrollView>
 				<TextButton
 					label="Sign Up"
 					// disabled={isEnableSignUp() ? false : true}

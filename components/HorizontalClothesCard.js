@@ -59,7 +59,7 @@ const HorizontalClothesCard = ({ containerStyle, imageStyle, item, onPress }) =>
                         (Math.sqrt(
                             Math.pow(item.longitude-userLongitude,2) + 
                             Math.pow(item.latitude-userLatitude,2)
-                        ))*100
+                        ))*1000
                     )/100} Kms
                 </Text>
 

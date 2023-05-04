@@ -39,9 +39,14 @@ const location1 = require("../assets/icons/location1.png")
 const check_circle = require("../assets/icons/check_circle.png");
 const customer_service=require("../assets/icons/customer_service.png")
 const order_summary=require("../assets/icons/order_summary.png")
-
+const right=require("../assets/icons/right-arrow.png")
+const star_stroke=require("../assets/icons/star_stroke.png")
+const star_filled=require("../assets/icons/star_filled.png")
 export default {
     coupon,
+    right,
+    star_stroke,
+    star_filled,
     customer_service,
     order_summary,
     cross,

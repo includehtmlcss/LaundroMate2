@@ -340,7 +340,7 @@ const LaundryDetail = ({ navigation }) => {
 								(Math.sqrt(
 									Math.pow(laundry.longitude - userLongitude, 2) +
 									Math.pow(laundry.latitude - userLatitude, 2)
-								)) * 100
+								)) * 1000
 							) / 100 + " Kms"}
 						/>
 

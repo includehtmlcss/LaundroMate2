@@ -30,6 +30,7 @@ const screens = {
   favourite: "Favourite",
   notification: "Notification",
   my_wallet: "My Wallet",
+  orders: "My Orders"
 };
 
 const bottom_tabs = [
